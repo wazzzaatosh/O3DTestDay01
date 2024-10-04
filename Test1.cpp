@@ -31,38 +31,247 @@ void AskAgeCalculs() {
 
 int AskPositiveInt() {
     int _chiffre;
-    bool _validInput = false;
-
-    //demande nouveau int tant que le bool est false
-    //using do while, executer au moins une fois 
-    while (!_validInput) {
-        cout << "ex3. enter l'entier positif : ";
+    /*bool _validInt = false;*/
+    //using do while
+    do {
+        cout << "ex.3 Entrez un entier positif : ";
         cin >> _chiffre;
 
-        if (_chiffre > 0) {
-            _validInput = true;
+        if (_chiffre <= 0) {
+            cout << "Chiffre invalide. Veuillez entrer un entier positif." << endl;
         }
-        else {
-            cout << "entrer a nouveau un entier positif!!" << endl;
-        }
-    }
-        return _chiffre;
+    } while (_chiffre <= 0);
+
+    return _chiffre;
 }
 
 void displayTableMultiplication10(int _chiffre) {
-    cout << "la table de multiplication de ta chiffre 1..10 " << _chiffre << endl;
+    cout << "la table de multiplication de ta chiffre " << _chiffre << " de 1..10 " << endl;
     for (int i = 1; i <= 10; i++) {
         cout << _chiffre << " * " << i << " = " << _chiffre * i << endl;
     }
+ }
+
+void BasicCalcul() {
+    int _num1, _num2;
+    char operation;
+    cout << "ex.5 " << endl;
+    cout << "entrez le premier int : ";
+    cin >> _num1;
+
+    cout << "entrez le deuxieme int : ";
+    cin >> _num2;
+
+    cout << "choose une Op. +, -, *, / : ";
+    cin >> operation;
+
+    switch (operation) {
+    case '+':
+        cout << _num1 << " + " << _num2 << " = " << _num1 + _num2 << endl;
+        break;
+    case '-':
+        cout << _num1 << " - " << _num2 << " = " << _num1 - _num2 << endl;
+        break;
+    case '*':
+        cout << _num1 << " * " << _num2 << " = " << _num1 * _num2 << endl;
+        break;
+     case
+        '/':
+        cout << _num1 << " / " << _num2 << " = " << _num1 / _num2 << endl;
+        //pas teste div /0 
+    default:
+            cout << "Opération non valide." << endl;
+        }
+}
+
+int AskIntMiniMax() {
+    int _indexN;
+    bool validInput = false;
+
+    cout << "ex. 6 " << endl;
+
+    do {
+        cout << "Enter un entier positif entre 1 et 10 : ";
+        cin >> _indexN;
+
+        if (_indexN >= 1 && _indexN <= 10) {
+            validInput = true;
+        }
+        else {
+            cout << "Nope! Enter un entier positif entre 1 et 10 :" << endl;
+        }
+    } while (!validInput);
+
+    return _indexN;
+}
+
+void displayIndexCalculs(int _indexN) {
+    for (int i = 1; i <= _indexN; i++) {
+        cout << i << endl;
+    }
+
+    if (_indexN % 2 == 0) {
+        cout << _indexN << " au carre : " << _indexN * _indexN << endl;
+    }
+    else {
+        cout << _indexN << " au cube : " << _indexN * _indexN * _indexN << endl;
+    }
+}
+
+int getLheure() {
+    int _lheure;
+    bool validHour = false;
+    cout << "ex.7 " << endl;
+    for (;;) {
+        cout << "Entrez l'heure de la journée (entre 0 et 24) : ";
+        cin >> _lheure;
+
+        if (_lheure >= 0 && _lheure <= 24) {
+            validHour = true;
+            break;
+        }
+        else {
+            cout << "enter une heure valide entre 0 et 24." << endl;
+        }
+    }
+        return _lheure;
+}
+
+void interpretLheure(int _lheure) {
+    if (_lheure >= 7 && _lheure < 12) {
+        cout << "Il est matin." << endl;
+    }
+    else if (_lheure == 12) {
+        cout << "Il est midi." << endl;
+    }
+    else if (_lheure > 12 && _lheure <= 23) {
+        cout << "Il est après-midi." << endl;
+    }
+    else if (_lheure == 24) {
+        cout << "Il est minuit." << endl;
+    }
+    else {
+        cout << "Il est nuit." << endl;
+    }
+}
+
+int AskUserMoneyCalc() {
+    int _xCinqCentimes, _xdixCentimes, _xvingtCentimes, _xciquanteCentimes, _xunEuro, _xdeuxEuro;
+
+    cout << "Entrez le nombre de pièces de 5 centimes : ";
+    cin >> _xCinqCentimes;
+    if (_xCinqCentimes < 0) {
+        cout << "Nombre invalide de pièces de 5 centimes. Considere comme 0." << endl;
+        _xCinqCentimes = 0;
+    }
+
+    cout << "Entrez le nombre de pièces de 10 centimes : ";
+    cin >> _xdixCentimes;
+    if (_xdixCentimes < 0) {
+        cout << "Nombre invalide de pièces de 10 centimes. Considere comme 0." << endl;
+        _xdixCentimes = 0;
+    }
+
+    cout << "Entrez le nombre de pièces de 20 centimes : ";
+    cin >> _xvingtCentimes;
+    if (_xvingtCentimes < 0) {
+        cout << "Nombre invalide de pièces de 20 centimes. Considere comme 0." << endl;
+        _xvingtCentimes = 0;
+    }
+
+    cout << "Entrez le nombre de pièces de 50 centimes : ";
+    cin >> _xciquanteCentimes;
+    if (_xciquanteCentimes < 0) {
+        cout << "Nombre invalide de pièces de 50 centimes. Considere comme 0." << endl;
+        _xciquanteCentimes = 0;
+    }
+
+    cout << "Entrez le nombre de pièces de 1 euro : ";
+    cin >> _xunEuro;
+    if (_xunEuro < 0) {
+        cout << "Nombre invalide de pièces de 1 euro. Considéré comme 0." << endl;
+        _xunEuro = 0;
+    }
+
+    cout << "Entrez le nombre de pièces de 2 euros : ";
+    cin >> _xdeuxEuro;
+    if (_xdeuxEuro < 0) {
+        cout << "Nombre invalide de pièces de 2 euros. Considéré comme 0." << endl;
+        _xdeuxEuro = 0;
+    }
+
+    int _totalCentimes = _xCinqCentimes * 5 + _xdixCentimes * 10 + _xvingtCentimes * 20 + _xciquanteCentimes * 50 + _xunEuro * 100 + _xdeuxEuro * 200;
+    int _totalEuros = _totalCentimes / 100;
+    int _restCentimes = _totalCentimes % 100;
+
+    cout << "Le total en euros est : " << _totalEuros << " euro(s) et " << _restCentimes << " centimes" << endl;
+
+    return _totalEuros;
+}
+
+void AskFamily() {
+    int _xminsoeurs, _xsoeurs, _xminfreres, _xfreres;
+    int age;
+    cout << "ex.9 " << endl;
+    cout << "Combien de soeurs avez-vous ? ";
+    cin >> _xsoeurs;
+    cout << "Combien de filles avez-vous ? ";
+    cin >> _xminsoeurs;
+         
+    for (int i = 0; i < _xminsoeurs; i++) {
+        cout << "Age de la soeur mineure #" << i +1 << ": ";
+        cin >> age;
+    }
+    cout << "Combien de freres avez-vous ? ";
+    cin >> _xfreres;
+    cout << "Combien de garçons avez-vous ? ";
+    cin >> _xminfreres;
+
+    for (int i = 0; i < _xminfreres; i++) {
+        cout << "Age du frère mineur #" << i + 1 << ": ";
+        cin >> age;
+    }
+
+    cout << "\nVous avez:\n"
+        << _xminsoeurs << " filles\n"
+        << _xsoeurs + _xminsoeurs << " soeurs \n"
+        << _xminfreres  << " garcons\n"
+        << _xminfreres + _xfreres << " frères\n";
 }
 
 int main() {
-    /*int _MonNumber = 27;
-    displayInteger(_MonNumber);
-    AskAgeCalculs();*/
-    int _chiffre = AskPositiveInt();
-    displayTableMultiplication10(_chiffre);
+    
+    ///* ex1 */
+    //int _MonNumber = 27;
+    //displayInteger(_MonNumber);
+   
+    ///* ex2 */
+    //AskAgeCalculs();
+   
+    ///* ex3 */
+    //int _chiffre = AskPositiveInt();
+    //displayTableMultiplication10(_chiffre);
+    //
+    ///* ex4 */
+    //Bouncer();
 
+    ///* ex5 */
+    //BasicCalcul();
+   
+    ///* ex6 */
+    //int _indexN = AskIntMiniMax();
+    //displayIndexCalculs(_indexN);
+   
+    ///* ex7 */
+    //int _lheure = getLheure();
+    //interpretLheure(_lheure); 
+
+    /* ex8 */
+    //int _totalEuros = AskUserMoneyCalc();
+
+    /*ex9 */
+    //AskFamily();
+      
     return 0;
 }
 
