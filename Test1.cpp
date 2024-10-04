@@ -239,6 +239,54 @@ void AskFamily() {
         << _xminfreres + _xfreres << " frères\n";
 }
 
+void JustePrix() {
+    int _justePrix = 27;
+    int _guess;
+    do {
+        cout << "Devine le numero! =>";
+        cin >> _guess;
+
+        if (_guess < _justePrix) {
+            cout << "plus haut! \n";
+        }
+        else if (_guess > _justePrix) {
+            cout << "plus bas! \n";
+        }
+
+    } while (_justePrix != _guess);
+          
+    cout << "c'est bon! \n";
+}
+
+void LaCaisse() {
+    int _prix = 100; // prix du jouet au hassard
+    int _reduction = 0;
+    int _nbCoupons = 0;
+    int _couponValue;
+
+    cout << "ex.11 \nLe prix initial est de " << _prix << " euros.\n";
+    cout << "Combien de coupons de réduction avez-vous ? ";
+    cin >> _nbCoupons;
+
+    for (int i = 0; i < _nbCoupons; i++) {
+        cout << "Valeur du coupon #" << i + 1 << " (en %): ";
+        cin >> _couponValue;
+
+        //Le résultat de ce calcul est ajouté à la variable
+        _reduction += (_prix * _couponValue) / 100;
+    }
+
+    int _prixReduit = _prix - _reduction;
+
+    cout << "La réduction totale est de " << _reduction << " euros.\n";
+    cout << "Le prix final est de " << _prixReduit << " euros.\n";
+}
+
+void BouncerDisco() {
+
+}
+
+
 int main() {
     
     ///* ex1 */
@@ -253,7 +301,7 @@ int main() {
     //displayTableMultiplication10(_chiffre);
     //
     ///* ex4 */
-    //Bouncer();
+    //BouncerDisco();
 
     ///* ex5 */
     //BasicCalcul();
@@ -272,6 +320,12 @@ int main() {
     /*ex9 */
     //AskFamily();
       
+    /*ex10 */
+    //JustePrix();
+
+    /*ex11 */
+    LaCaisse();
+
     return 0;
 }
 
