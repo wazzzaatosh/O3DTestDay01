@@ -283,7 +283,23 @@ void LaCaisse() {
 }
 
 void BouncerDisco() {
-
+    int _groups, _partypeople;
+    int _drinkers = 26; // party people deja la
+    
+    cout << "ex.4 \ncombien des groupes ? => ";
+    cin >> _groups;
+    for (int i = 0; i < _groups; i++) {
+        cout << "votre groupe #" << i + 1 << " a combien de party people: ";
+        cin >> _partypeople;
+        for (int i = 0; i < _partypeople; i++) {
+            if (i%2 == 0) {
+                cout << "Bonjour! \n";
+            }
+        }
+        _drinkers += _partypeople;
+    }
+    
+    cout << "tout le monde dedans: " << _drinkers;
 }
 
 
@@ -301,7 +317,7 @@ int main() {
     //displayTableMultiplication10(_chiffre);
     //
     ///* ex4 */
-    //BouncerDisco();
+    BouncerDisco();
 
     ///* ex5 */
     //BasicCalcul();
@@ -324,7 +340,7 @@ int main() {
     //JustePrix();
 
     /*ex11 */
-    LaCaisse();
+    //LaCaisse();
 
     return 0;
 }
